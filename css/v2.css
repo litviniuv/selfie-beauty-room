@@ -1,0 +1,38 @@
+/* Variant 2: shade fan deck (colour chart opening around a work card) */
+:root{--bg:#fbf7f4;--bg2:#f4ebe6;--ink:#1f1a1a;--mute:#5f5452;--acc:#1f1a1a;--acc-ink:#fbf7f4;--gold:#a8742f;--line:#e5d8d1;--card:#fff;
+--fd:"Unbounded",system-ui,sans-serif;--fb:"Golos Text",system-ui,sans-serif;--r:22px}
+.logo{font:600 17px/1 var(--fd);letter-spacing:-.01em}
+@media (min-width:960px){.logo{font-size:19px}}
+.menu a{font:500 19px/1.2 var(--fd)}
+.h1{font:600 clamp(28px,6vw,52px)/1.08 var(--fd);letter-spacing:-.02em}
+.h2{font:600 clamp(24px,4.4vw,40px)/1.1 var(--fd);letter-spacing:-.02em;display:flex;align-items:center;gap:14px}
+.h2::before{content:"";flex:none;width:18px;height:34px;border-radius:9px 9px 4px 4px;background:var(--chip,#e7a9b0)}
+.h3{font:500 18px/1.3 var(--fd)}
+.brow{color:var(--gold)}
+.hero{overflow:hidden}
+/* fan */
+.fan{position:relative;width:min(84vw,460px);aspect-ratio:1/1.02;margin-inline:auto}
+.fan__s{position:absolute;left:50%;bottom:6%;width:22%;height:76%;margin-left:-11%;border-radius:999px 999px 18px 18px;background:var(--c);transform-origin:50% 92%;box-shadow:0 10px 24px -14px rgba(0,0,0,.35);
+ transform:rotate(calc((var(--i) - 3) * 15deg));animation:fan 1.1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 60ms)}
+@keyframes fan{from{transform:rotate(0)}}
+.fan__card{position:absolute;left:50%;bottom:4%;width:44%;aspect-ratio:3/4;margin:0 0 0 -22%;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 50px -24px rgba(40,20,20,.5);animation:pop .8s .55s both}
+.fan__card img,.fan__card picture{width:100%;height:100%;object-fit:cover}
+@keyframes pop{from{transform:translateY(30px) scale(.9);opacity:0}}
+.fan__pin{position:absolute;left:50%;bottom:calc(6% + 76%*.08 - 9px);width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#fff;border:4px solid var(--gold);z-index:2}
+/* sections: chip colour per section, cards like swatches */
+.about{--chip:#d9b49c;background:var(--bg)}
+.services{--chip:#e7a9b0}.photos{--chip:#a9c4d6;background:var(--bg2)}.reviews{--chip:#c48a62;background:var(--bg)}.contacts{--chip:#c9a24a;background:var(--bg2)}
+.card{border:0;padding:0;background:var(--card);box-shadow:0 14px 30px -22px rgba(0,0,0,.35)}
+.card::before{content:"";display:block;height:64px;background:var(--sw)}
+.card .h3,.card p{padding:0 22px}.card .h3{padding-top:18px}.card p{padding-bottom:22px}
+.card:nth-child(1){--sw:linear-gradient(90deg,#f2d4cf,#e7a9b0)}.card:nth-child(2){--sw:linear-gradient(90deg,#d9b49c,#c48a62)}.card:nth-child(3){--sw:linear-gradient(90deg,#a9c4d6,#1f1a1a)}
+.about__ph{border-radius:999px 999px var(--r) var(--r);border:6px solid #fff;box-shadow:0 20px 40px -26px rgba(0,0,0,.4)}
+.ticks li::before{border-color:var(--ink)}
+.car{background:#fff;padding:12px;border-radius:28px;box-shadow:0 18px 40px -28px rgba(0,0,0,.4)}
+.car__view{border-radius:18px}
+.car__ctl{padding:0 4px}
+.rev{border:0;box-shadow:0 14px 30px -22px rgba(0,0,0,.35);border-top:8px solid var(--chip)}
+.rate,.map__btn{border-radius:999px}
+.map{border-radius:var(--r)}
+.foot{background:#1f1a1a}
+@media (max-width:519px){.logo{font-size:14px}}
