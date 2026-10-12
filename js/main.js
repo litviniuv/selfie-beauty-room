@@ -16,7 +16,8 @@
     de.classList.remove('locked');
     de.style.scrollBehavior='auto';
     try{w.scrollTo({top:savedY,left:0,behavior:'instant'})}catch(e){w.scrollTo(0,savedY)}
-    requestAnimationFrame(function(){requestAnimationFrame(function(){
+    function fix(){if(Math.abs(w.scrollY-savedY)>1){try{w.scrollTo({top:savedY,left:0,behavior:'instant'})}catch(e){w.scrollTo(0,savedY)}}}
+    requestAnimationFrame(function(){fix();requestAnimationFrame(function(){fix();
       de.style.scrollBehavior='';
       requestAnimationFrame(function(){if(after)after();});
     });});

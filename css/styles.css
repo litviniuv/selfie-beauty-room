@@ -133,3 +133,5 @@ html.locked,html.locked body{overflow:hidden}
 @media (min-width:960px){.sec{scroll-margin-top:-96px}}
 .h2{overflow-wrap:break-word;hyphens:auto}
 @media (max-width:519px){.logo{font-size:18px}}
+.h1{hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

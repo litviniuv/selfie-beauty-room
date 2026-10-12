@@ -1,38 +1,52 @@
-/* Variant 2: shade fan deck (colour chart opening around a work card) */
-:root{--bg:#fbf7f4;--bg2:#f4ebe6;--ink:#1f1a1a;--mute:#5f5452;--acc:#1f1a1a;--acc-ink:#fbf7f4;--gold:#a8742f;--line:#e5d8d1;--card:#fff;
+/* Variant 2 · exp_prompts #3 «Work rises from lacquer»: drawn lacquer puddle, wine to powder, behind the whole page */
+:root{--bg:#3a0e1b;--bg2:transparent;--ink:#fbeff0;--mute:#ecd3d6;--acc:#f6dcd9;--acc-ink:#3a0e1b;--gold:#f0b9bf;--line:rgba(246,220,217,.28);--card:rgba(42,8,20,.55);
 --fd:"Unbounded",system-ui,sans-serif;--fb:"Golos Text",system-ui,sans-serif;--r:22px}
+body{background:linear-gradient(180deg,#3a0e1b 0,#4a1424 900px,#5e1b2e 45%,#7a2a40 62%,#c98f99 76%,#ead0cf 86%,#f4e3df 100%)}
+.head{background:#3a0e1b;border-bottom-color:var(--line)}
+.menu{background:#3a0e1b}
 .logo{font:600 17px/1 var(--fd);letter-spacing:-.01em}
 @media (min-width:960px){.logo{font-size:19px}}
-.menu a{font:500 19px/1.2 var(--fd)}
-.h1{font:600 clamp(28px,6vw,52px)/1.08 var(--fd);letter-spacing:-.02em}
-.h2{font:600 clamp(24px,4.4vw,40px)/1.1 var(--fd);letter-spacing:-.02em;display:flex;align-items:center;gap:14px}
-.h2::before{content:"";flex:none;width:18px;height:34px;border-radius:9px 9px 4px 4px;background:var(--chip,#e7a9b0)}
-.h3{font:500 18px/1.3 var(--fd)}
-.brow{color:var(--gold)}
-.hero{overflow:hidden}
-/* fan */
-.fan{position:relative;width:min(84vw,460px);aspect-ratio:1/1.02;margin-inline:auto}
-.fan__s{position:absolute;left:50%;bottom:6%;width:22%;height:76%;margin-left:-11%;border-radius:999px 999px 18px 18px;background:var(--c);transform-origin:50% 92%;box-shadow:0 10px 24px -14px rgba(0,0,0,.35);
- transform:rotate(calc((var(--i) - 3) * 15deg));animation:fan 1.1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 60ms)}
-@keyframes fan{from{transform:rotate(0)}}
-.fan__card{position:absolute;left:50%;bottom:4%;width:44%;aspect-ratio:3/4;margin:0 0 0 -22%;border-radius:22px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 50px -24px rgba(40,20,20,.5);animation:pop .8s .55s both}
-.fan__card img,.fan__card picture{width:100%;height:100%;object-fit:cover}
-@keyframes pop{from{transform:translateY(30px) scale(.9);opacity:0}}
-.fan__pin{position:absolute;left:50%;bottom:calc(6% + 76%*.08 - 9px);width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#fff;border:4px solid var(--gold);z-index:2}
-/* sections: chip colour per section, cards like swatches */
-.about{--chip:#d9b49c;background:var(--bg)}
-.services{--chip:#e7a9b0}.photos{--chip:#a9c4d6;background:var(--bg2)}.reviews{--chip:#c48a62;background:var(--bg)}.contacts{--chip:#c9a24a;background:var(--bg2)}
-.card{border:0;padding:0;background:var(--card);box-shadow:0 14px 30px -22px rgba(0,0,0,.35)}
-.card::before{content:"";display:block;height:64px;background:var(--sw)}
-.card .h3,.card p{padding:0 22px}.card .h3{padding-top:18px}.card p{padding-bottom:22px}
-.card:nth-child(1){--sw:linear-gradient(90deg,#f2d4cf,#e7a9b0)}.card:nth-child(2){--sw:linear-gradient(90deg,#d9b49c,#c48a62)}.card:nth-child(3){--sw:linear-gradient(90deg,#a9c4d6,#1f1a1a)}
-.about__ph{border-radius:999px 999px var(--r) var(--r);border:6px solid #fff;box-shadow:0 20px 40px -26px rgba(0,0,0,.4)}
-.ticks li::before{border-color:var(--ink)}
-.car{background:#fff;padding:12px;border-radius:28px;box-shadow:0 18px 40px -28px rgba(0,0,0,.4)}
-.car__view{border-radius:18px}
-.car__ctl{padding:0 4px}
-.rev{border:0;box-shadow:0 14px 30px -22px rgba(0,0,0,.35);border-top:8px solid var(--chip)}
-.rate,.map__btn{border-radius:999px}
-.map{border-radius:var(--r)}
-.foot{background:#1f1a1a}
 @media (max-width:519px){.logo{font-size:14px}}
+.nav a:hover{background:rgba(255,255,255,.08)}
+.burger{border-color:var(--line)}
+.menu a{font:500 19px/1.2 var(--fd)}
+.h1{font:600 clamp(26px,5.6vw,50px)/1.1 var(--fd);letter-spacing:-.02em}
+.h2{font:600 clamp(24px,4.4vw,40px)/1.1 var(--fd);letter-spacing:-.02em}
+.h3{font:500 18px/1.3 var(--fd)}
+.hero__who{color:var(--mute);font-size:18px;margin:0 0 24px;max-width:30em}
+.btn--line{color:var(--ink);border-color:var(--acc)}
+.hero{min-height:calc(100svh - var(--hh) - 30px);display:flex;align-items:center}
+.hero__grid{width:min(1180px,100% - 32px)}
+/* card rising from lacquer */
+.lq{display:flex;flex-direction:column;align-items:center}
+.lq__card{width:min(64vw,360px);perspective:900px;position:relative;animation:lqrise 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes lqrise{from{transform:translateY(70px);opacity:0}}
+.lq__ph{margin:0;position:relative;aspect-ratio:3/4;border-radius:20px;overflow:hidden;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease;
+ -webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);box-shadow:0 40px 60px -30px rgba(0,0,0,.6)}
+.lq__ph img,.lq__ph picture{width:100%;height:100%;object-fit:cover}
+.lq__shine{position:absolute;inset:0;background:radial-gradient(circle at var(--hx,30%) var(--hy,20%),rgba(255,255,255,.35),transparent 45%);mix-blend-mode:soft-light;pointer-events:none}
+.lq__refl{height:70px;overflow:hidden;transform:scaleY(-1);opacity:.22;filter:blur(4px);-webkit-mask-image:linear-gradient(transparent 30%,#000);mask-image:linear-gradient(transparent 30%,#000);border-radius:20px;margin-top:-2px}
+.lq__refl picture,.lq__refl img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;margin-top:calc(-100% * 4 / 3 + 70px)}
+.lq__cap{margin:6px 0 0;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:center}
+@media (min-width:960px){.lq{align-items:flex-end}.lq__cap{align-self:flex-end}}
+.ring{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border:2px solid rgba(255,255,255,.8);border-radius:50%;pointer-events:none;animation:ring .7s ease-out forwards}
+@keyframes ring{to{transform:scale(9);opacity:0}}
+/* sections on the lacquer, no plaques */
+.sec{background:transparent}
+.about__ph,.tile{border-radius:20px;-webkit-mask-image:linear-gradient(#000 85%,transparent);mask-image:linear-gradient(#000 85%,transparent)}
+.card{background:var(--card);border-color:var(--line);backdrop-filter:blur(6px)}
+.card p,.note,.ticks li{color:var(--mute)}
+.ticks li::before{border-color:var(--gold)}
+.note a{color:var(--ink)}
+/* works: 3:4 cards with a soft lower edge, rising when the section enters */
+.car{max-width:400px}
+.car__view{border-radius:20px;-webkit-mask-image:linear-gradient(#000 86%,transparent);mask-image:linear-gradient(#000 86%,transparent)}
+.js .photos .car{transform:translateY(60px);opacity:0;transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity 1s}
+.js .photos.in .car{transform:none;opacity:1}
+/* lower, powder part of the puddle: dark ink */
+.reviews,.contacts{--ink:#3a0e1b;--mute:#6d3a46;--line:rgba(58,14,27,.22);--card:rgba(255,255,255,.55);--acc:#3a0e1b;--acc-ink:#fbeff0;color:var(--ink)}
+.photos .car__ctl{color:#fbeff0}.photos .car__btn{background:#3a0e1b}.photos .car__count{background:#3a0e1b;padding:4px 12px;border-radius:999px}
+.map{background:rgba(255,255,255,.4)}
+.foot{background:#3a0e1b}
+@media (prefers-reduced-motion:reduce){.lq__card{animation:none}.js .photos .car{transform:none;opacity:1}}
+.demo{background:#1a050c;color:#fff}.demo__sw a[aria-current]{background:#fff;color:#1a050c}
